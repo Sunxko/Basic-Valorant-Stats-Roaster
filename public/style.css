@@ -1,0 +1,85 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/splash.png');
+    background-size: cover;
+    background-position: center;
+    color: #ECE8E1;
+}
+
+.roast-container {
+    background: rgba(15, 25, 35, 0.9);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #FF4655;
+    box-shadow: 0 0 20px rgba(255, 70, 85, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 {
+    color: #FF4655;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    gap: 10px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #555;
+    background: #111;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus { border-color: #FF4655; }
+#riotName { width: 60%; }
+#riotTag { width: 25%; }
+.hashtag { font-size: 20px; font-weight: bold; color: #FF4655; }
+
+button {
+    background-color: #FF4655;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background-color: #e03c4a;
+    transform: translateY(-2px);
+}
+
+#resultBox {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.hidden { display: none; }
