@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 interface ValorantStats {
     name: string;
@@ -68,7 +70,7 @@ function roastPlayer(stats: ValorantStats): string {
 async function fetchValorantStats(name: string, tag: string): Promise<ValorantStats> {
     console.log(`\nFetching stats for ${name}#${tag} from HenrikDev servers...\n`);
 
-    const apiKey = "HDEV-f25345a5-1256-430b-a2eb-f31ee3e85f07";
+    const apiKey = process.env.API_KEY;
     const urlMatches = `https://api.henrikdev.xyz/valorant/v1/lifetime/matches/eu/${encodeURIComponent(name)}/${encodeURIComponent(tag)}`;
     const urlMMR = `https://api.henrikdev.xyz/valorant/v1/mmr/eu/${encodeURIComponent(name)}/${encodeURIComponent(tag)}`;
 
