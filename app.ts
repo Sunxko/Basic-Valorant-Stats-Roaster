@@ -90,7 +90,7 @@ async function fetchValorantStats(name: string, tag: string): Promise<ValorantSt
         // Calculate K/D, Headshots and find Most Played Agent
         let totalKills = 0, totalDeaths = 0;
         let totalHeadshots = 0, totalShots = 0;
-        let mainAgent = "all"; // Default value if no matches are found
+        let mainAgent = "all";
 
         if (matchesData && matchesData.length > 0) {
             const agentCounts: { [key: string]: number } = {};
@@ -154,13 +154,12 @@ async function fetchValorantStats(name: string, tag: string): Promise<ValorantSt
 
 const app = express();
 
-// Ενεργοποιούμε το CORS και την ανάγνωση JSON
+// Enabling CORS and Json reading
 app.use(cors());
 app.use(express.json());
 
-// Φτιάχνουμε το Endpoint που θα "ακούει" το Frontend
+// Establishing Endpoint
 app.post('/api/roast', async (req, res) => {
-    // Παίρνουμε το name και το tag που μας έστειλε το Frontend
     const { name, tag } = req.body;
 
     if (!name || !tag) {
@@ -168,18 +167,16 @@ app.post('/api/roast', async (req, res) => {
     }
 
     try {
-        // Καλούμε τις δικές σου συναρτήσεις!
         const stats = await fetchValorantStats(name, tag);
         const roastMessage = roastPlayer(stats);
 
-        // Στέλνουμε πίσω στο Frontend το τελικό κείμενο
         res.json({ roast: roastMessage });
     } catch (error) {
         res.status(500).json({ error: "Something went wrong on the server." });
     }
 });
 
-// Ξεκινάμε τον server στη θύρα 3000
+// Initializing server on port 3000
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Ο Backend Server τρέχει στο http://localhost:${PORT}`);
